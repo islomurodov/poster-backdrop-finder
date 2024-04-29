@@ -5,6 +5,8 @@ const props = defineProps<{
   item: Result
 }>()
 
+const { copy } = useClipboard()
+
 const isOpen = ref<boolean>(false)
 
 function openModal() {
@@ -15,8 +17,8 @@ function closeModal() {
   isOpen.value = false
 }
 
-async function copyImage(type: 'poster' | 'backdrop') {
-  await navigator.clipboard.writeText(type === 'poster' ? getPoster(props.item) : getBackdrop(props.item))
+function copyImage(type: 'poster' | 'backdrop') {
+  copy(type === 'poster' ? getPoster(props.item) : getBackdrop(props.item))
 }
 </script>
 
