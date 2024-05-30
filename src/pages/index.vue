@@ -15,7 +15,7 @@ const page = ref<number>(1)
 async function getPoster(query?: string) {
   try {
     isLoading.value = true
-    const response: AxiosResponse<ApiResponse> = await axios.get<ApiResponse>(`${import.meta.env.VITE_TMDB_URL}/search/movie`, {
+    const response: AxiosResponse<ApiResponse> = await axios.get<ApiResponse>(`${import.meta.env.VITE_TMDB_URL}/search/multi`, {
       params: {
         api_key: import.meta.env.VITE_TMDB_API_KEY,
         language: 'en-US',
